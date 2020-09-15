@@ -16,6 +16,10 @@ inputs:
   webhook_url:
     description: "Slack channel webhook URL"
     required: true
+  message:
+    description: "message body"
+    required: true
+    default: "lorem ipsum hatchum batchum"
 runs:
   using: "composite"
   steps: 
