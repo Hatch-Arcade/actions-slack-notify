@@ -1,0 +1,25 @@
+name: 'Slack Notify'
+description: 'MacOS runner compatible Slack notification'
+inputs:
+  username:  # id of input
+    description: 'Username as it will appear in Slack'
+    required: true
+    default: 'MyApp'
+  icon:
+    description: 'Icon to use'
+    required: true
+    default: ghost
+  channel:
+    description: 'Slack channel name without #'
+    required: true
+    default: general
+  webhook_url:
+    description: "Slack channel webhook URL"
+    required: true
+runs:
+  using: "composite"
+  steps: 
+    - run: ${{ github.action_path }}/slack_message.sh ${{ inputs.webhook_url }} ${{ inputs.channel }} ${{ inputs.username }} ${{ inputs.message }} ${{ inputs.icon }}
+      shell: bash
+
+# Usage: slack_message "<webhook_url>" "<channel>" "<username>" "<message>"
