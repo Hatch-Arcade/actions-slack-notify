@@ -2,6 +2,8 @@
 
 # Usage: slack_message "<webhook_url>" "<channel>" "<username>" "<message>"
 
+set -euo pipefail
+
 # ------------
 webhook_url=$1
 if [[ $webhook_url == "" ]]
